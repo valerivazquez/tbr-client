@@ -11,7 +11,7 @@ import { ROUTER_DIRECTIVES} from '@angular/router';
   pipes:[CapitalizarPipe] // los pipes se registran igual que las directivas
 })
 export class MovimientoListaComponent implements OnInit {
-  movimientos= []
+  movimientos: MovimientoModel[] = []
   @Output() editarMovimiento: EventEmitter<MovimientoModel> = new EventEmitter()
 
   constructor(private movimientosService: MovimientosService) { }

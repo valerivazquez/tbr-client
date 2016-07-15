@@ -9,7 +9,7 @@ import { HttpToolsService } from './http-tools.service'
 @Injectable()
 export class MovimientosService {
 
-  urlBase: string = 'http://localhost:3000/api'
+  urlBase: string = 'http://localhost:3030/api'
 
   constructor(private http: Http, private httpToolsService: HttpToolsService) {
   }
@@ -33,7 +33,7 @@ export class MovimientosService {
     }
     else {
       return this.http
-        .post(`${this.urlBase}/priv/movimientos`, body, options)
+        .post(`${this.urlBase}/priv/companies`, body, options)
         .catch(this.httpToolsService.tratarErrores)
     }
   }
@@ -41,7 +41,7 @@ export class MovimientosService {
   leerMovimientos() {
     let options = this.httpToolsService.configurarCabeceras()
     return this.http
-      .get(`${this.urlBase}/priv/movimientos`,options)
+      .get(`${this.urlBase}/priv/companies`,options)
       .map(this.httpToolsService.obtenerDatos)
       .catch(this.httpToolsService.tratarErrores)
   }
@@ -75,11 +75,53 @@ export class MovimientosService {
         .catch(this.httpToolsService.tratarErrores)
   }
 }
+//@Injectable()
+//export class MovimientoModel {
+//  _id: string
+//  tipo: string
+//  categoria: string
+//  fecha: Date
+//  importe: number
+//  name: string 
+//}
+
 @Injectable()
 export class MovimientoModel {
-  _id: string
-  tipo: string
-  categoria: string
-  fecha: Date
-  importe: number
+    name: string
+    businessName: string
+    owner: string
+    nif: string
+    officePhone: string
+    mobile: string
+    email: string
+    website: string
+    address: {
+        street: string
+        city: string
+        postalCode: string
+        country: string
+    }
+    gpsCoordinates: {
+        latitude: number
+        longitude: number
+    }
+    district: string
+    neighborhood: string
+    type: string
+    industry: string
+    memberOf: string
+    comments: string
+    campaigns: string[]
+    documents: [{
+        name: string
+        url: string
+    }]
+    contacts: [{
+        name: string
+        cargo: string
+    }]
+  createdUser: string
+  createdDate: Date
+  modifiedUser: string
+  modifiedDate: Date
 }

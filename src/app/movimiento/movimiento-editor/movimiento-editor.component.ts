@@ -62,12 +62,12 @@ export class MovimientoEditorComponent implements OnActivate, OnInit {
   }
 
   crearMovimiento(): void {
-    this.movimiento = {
-      _id: "_",
-      tipo: "Ingreso",
-      categoria: "Nómina",
-      fecha: new Date(),
-      importe: 0
-    }
+  //  this.movimiento = {
+  //    _id: "_",
+  //  por valeri  tipo: "Ingreso",
+  //    categoria: "Nómina",
+  //    fecha: new Date(),
+  //    importe: 0
+   // }
   }
 }
